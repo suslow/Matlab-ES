@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="ES_DB_DIagram.erd">
+	<entities>
+		<data-source id="sqlite_jdbc-170beb76d83-7cf50257a1b326ae">
+			<entity id="1" name="Pers" fq-name="Pers" order="0" color-bg="197,220,252" x="740" y="380"/>
+			<entity id="2" name="Find" fq-name="Find" order="1" color-bg="166,240,185" x="600" y="380"/>
+			<entity id="3" name="Power" fq-name="Power" order="2" color-bg="175,207,179" x="680" y="100"/>
+			<entity id="4" name="Symp" fq-name="Symp" order="3" color-bg="232,208,153" x="680" y="220"/>
+			<entity id="5" name="LinkSympPower" fq-name="LinkSympPower" order="4" color-bg="255,255,128" x="460" y="140"/>
+			<entity id="6" name="DiagDop" fq-name="DiagDop" order="5" color-bg="217,204,247" x="240" y="420"/>
+			<entity id="7" name="Med" fq-name="Med" order="6" color-bg="241,124,124" x="740" y="500"/>
+			<entity id="8" name="LinkDiagSympPower" fq-name="LinkDiagSympPower" order="7" color-bg="128,255,255" x="180" y="220"/>
+			<entity id="9" name="Diag" fq-name="Diag" order="8" color-bg="255,128,64" x="460" y="380"/>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="vfk_Pers_Find" type="vfk" pk-ref="2" fk-ref="1"/>
+		<relation name="vfk_Med_Find" type="vfk" pk-ref="2" fk-ref="7"/>
+		<relation name="vfk_Diag_Find" type="vfk" pk-ref="2" fk-ref="9"/>
+		<relation name="vfk_Power_LinkSympPower" type="vfk" pk-ref="5" fk-ref="3"/>
+		<relation name="vfk_Symp_LinkSympPower" type="vfk" pk-ref="5" fk-ref="4"/>
+		<relation name="vfk_Diag_DiagDop" type="vfk" pk-ref="6" fk-ref="9"/>
+		<relation name="vfk_LinkSympPower_LinkDiagSympPower" type="vfk" pk-ref="8" fk-ref="5"/>
+		<relation name="vfk_Diag_LinkDiagSympPower" type="vfk" pk-ref="8" fk-ref="9"/>
+	</relations>
+</diagram>
